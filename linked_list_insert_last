@@ -1,0 +1,48 @@
+//Program to insert a node to a  linked list from last
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+
+};
+
+void printfun(struct node *n)
+{
+    while(n!=NULL)
+    {
+        printf("%d\t",n->data);
+        n=n->next;
+       // printf("%d",n->data);
+        
+    }
+}
+
+void push_back(struct node **ptr,int new_data)
+{
+    struct node *new_node = (struct node *)malloc(sizeof(struct node)); 
+    struct node *temp = *ptr;  //creating a dummy node called temp and copying the head value to it
+    new_node->data = new_data;
+    new_node->next = NULL;
+   //traversing to last node of linked list by checking the NULL value
+    while(temp->next != NULL)
+    {
+        temp = temp->next; // second iteration temp bears the second node value and in the third iteration it has third node value and so on until last node
+    }
+    temp->next = new_node; // finally last before node value points to the new_node 
+}
+int main()
+{
+
+struct node *head = NULL;
+
+push(&head,5);
+push(&head,6);
+push(&head,7);
+push_back(&head,8);
+printfun(head);
+
+}
