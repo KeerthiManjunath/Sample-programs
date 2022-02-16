@@ -1,0 +1,63 @@
+// Online C compiler to run C program online
+//Program to Delete a node from a linked list
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+void push(struct node **head,int new_data)
+{
+    struct node *new_node = (struct node *)malloc(sizeof(struct node));
+    
+    new_node->data=new_data;
+    new_node->next= (*head);
+    (*head)=new_node;
+    
+}
+void print(struct node *n)
+{
+    while(n != NULL)
+    {
+        printf("%d\t",n->data);
+        n=n->next;
+        
+    }
+}
+void delete_node(struct node **head_ref,int key) //Function takes the pointer to pointer reference node and the data to be deleted.
+{
+    struct node *temp = *head_ref; //create two variables of trpe struct node
+    struct node * prev;   //temp is to hold the traversal data and prev is to hold the previous node data 
+    
+    if(temp!=NULL && temp->data == key) //if the head contains key, store the next of temp in heaad_ref and delete the temp 
+    {
+        *head_ref = temp->next;
+        free(temp);
+    }
+    
+    
+    if(temp!=NULL && temp->data!= key) // if the data is in middle,traverse till the key 
+    {
+        prev=temp; // temp value is assigned to prev
+        temp=temp->next;//temp traverse to next node
+    }
+    
+    prev->next = temp->next; 
+    free(temp);
+    
+    
+}
+int main()
+{
+    struct node *pointer = NULL;
+    push(&pointer,5);
+    push(&pointer,6);
+    push(&pointer,7);
+    delete_node(&pointer,6);
+    print(pointer);
+    return 0;
+}
