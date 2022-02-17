@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+int main()
+{
+int count_1=0,count_2=0,count_3=0,count_4=0,count_5=0,count_6=0,i;
+char str[] = "(){}[]"; //predefied input,.,please change while testing,.,usually a file can be taken as input and read char by char thus increment the count when ever the peranthesis is encountered
+for(i=0;i<6;i++)
+{
+if(str[i]=='(')
+count_1++;
+else if(str[i]==')')
+count_2++;
+else if(str[i]=='{')
+count_3++;
+else if(str[i]=='}')
+count_4++;
+else if(str[i]=='[')
+count_5++;
+else if(str[i]==']')
+count_6++;
+}
+
+if(count_1 == count_2)  //simple if else ladder is used,.,.can be done in case condition with switch also
+{
+  if(count_3 == count_4)
+  {
+      if(count_5 == count_6)
+      printf("true");
+      else
+      printf("false");
+  }
+  else
+ printf("false");
+}
+  else
+ printf("false");
+
+return 0;
+}
