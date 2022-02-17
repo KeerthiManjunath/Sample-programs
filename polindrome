@@ -1,0 +1,31 @@
+
+#include<stdio.h>
+
+int main()
+{
+
+int num,temp,rec,sum=0;
+printf("enter the number to check if polindrome:");
+scanf("%d",&num);
+temp = num;
+//printf("%d",temp);
+while(num>0)
+{
+   
+    rec=num%10;    //this gives the remainder and the remainder will be last number.
+     //printf("rec %d\n",rec);
+    sum=(sum*10)+rec;
+    num=num/10; //this gives the quotient and it is the remaining number
+}
+
+if(sum == temp)
+{
+    printf("POLINDROME");
+    
+}
+else
+{
+    printf("NOT POLINDROME");
+}
+return 0;
+}
