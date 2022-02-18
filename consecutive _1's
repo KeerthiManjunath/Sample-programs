@@ -1,0 +1,32 @@
+//program to check in a binary array, the max number of cosecutive 1's
+#include<stdio.h>
+int main()
+{
+    int n,i,j,temp=0,count=0;
+    printf("Enter the number of elements of the array : ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Enter the array of numbers:\n");
+    for(i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+    printf("The array elements are:");
+    for(i=0;i<n;i++)
+    printf("%d\t",arr[i]);
+    for(i=0;i<n;i++)
+    {
+      if(arr[i]==1)
+      count++;
+      else
+      count=0;
+     // break;
+      printf("%d",count);
+      if (count > temp)
+      temp=count;
+      else
+      count;
+     
+    }
+    printf("\nThe maximum number of consecutive 1's are: %d",temp);
+      
+    return 0;
+}
