@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+    int arr[]={1,0,2,3,0,4};
+    for(int i=0;i<6;i++)
+    {
+        if(arr[i]==0)
+        {
+            arr[i+1]=0;
+            i=i+2; //next number becomes 0 and the later next continues.,.,otherwise the entire array becomes 0
+        }
+    }
+    for(int i=0;i<6;i++)
+    printf("%d ",arr[i]);
+}
